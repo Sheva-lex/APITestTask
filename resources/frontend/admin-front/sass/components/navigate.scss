@@ -1,0 +1,41 @@
+.nav {
+    &__link {
+        display: flex !important;
+        align-items: center;
+    }
+    &__icons {
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        &--notifications {
+            mask: url('/img/img-admin/icons/notifications.svg') no-repeat center / contain;
+        }
+        &--home {
+            mask: url('/img/img-admin/icons/home.svg') no-repeat center / contain;
+        }
+        &--catalog {
+            mask: url('/img/img-admin/icons/catalog.svg') no-repeat center / contain;
+        }
+        &--planing {
+            mask: url('/img/img-admin/icons/planing.svg') no-repeat center / contain;
+        }
+        &--finance {
+            mask: url('/img/img-admin/icons/finance.svg') no-repeat center / contain;
+        }
+        &--procurement {
+            mask: url('/img/img-admin/icons/procurement.svg') no-repeat center / contain;
+        }
+        &--shipment {
+            mask: url('/img/img-admin/icons/shipment.svg') no-repeat center / contain;
+        }
+        &--delivery {
+            mask: url('/img/img-admin/icons/delivery.svg') no-repeat center / contain;
+        }
+    }
+}
+
+.nav-label {
+    line-height: 1;
+    margin: auto;
+    margin-left: 5px;
+}

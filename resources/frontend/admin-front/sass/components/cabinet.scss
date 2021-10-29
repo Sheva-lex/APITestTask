@@ -1,0 +1,303 @@
+.menu-image {
+	max-width: 40px;
+	min-width: 40px; 
+	float: left; 
+	padding-right: 10px;
+}
+
+.btn-menu-close {
+	background-color: white;
+	height: 100%;
+	vertical-align: middle;
+	margin: auto;
+	padding-top: 20px;
+}
+
+.li-menu-close {
+	background-color: yellow;
+}
+
+.li-menu-close:hover {
+	background-color: #ef9309;
+	color: white;
+}
+
+.li-menu-close:hover > a {
+
+	color: white !important;
+}
+
+.table.table-striped  th {
+	height: 40px;
+	font-weight: bold;
+}
+
+.ibox {
+	box-shadow: 0px 5px 5px #e6e3e3;
+}
+
+.filter-result {
+	padding: 10px 20px; 
+}
+
+.button-plus {
+	text-transform: uppercase;
+	padding: 5px 20px; 
+	font-weight: bold; 
+	font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #1bb494 !important;
+}
+
+.button-edit {
+	text-transform: uppercase;
+	padding: 5px 20px; 
+	font-weight: bold; 
+	font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #1c84c6 !important;
+}
+
+.button-edit:hover {
+	text-transform: uppercase;
+	padding: 5px 20px; 
+	font-weight: bold; 
+	font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: white !important;
+}
+
+.button-delete {
+	text-transform: uppercase !important;
+	padding: 5px 20px !important; 
+	font-weight: bold; 
+	font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #ED5565 !important;
+}
+
+.button-delete:hover {
+	text-transform: uppercase !important;
+	padding: 5px 20px !important; 
+	font-weight: bold; 
+	font-family: 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: white !important;
+}
+
+.button-logout {
+	font-weight: bold;
+	
+}
+
+.button-logout:hover {
+	background-color: #fbc26c;
+	color: black;
+}
+
+.button-profile {
+	font-weight: bold;
+	
+}
+
+.button-profile:hover {
+	background-color: #d7f4fd;
+	color: black;
+}
+
+.company-title-head {
+	padding: 10px 40px;
+	text-align: center;
+}
+
+.company-title-head:hover {
+
+	background-color: #f3f2f2;
+}
+
+#current-date {
+	font-weight: bold;
+	color:grey;
+}
+
+#current-time {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.alert {
+	position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 9999;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.table-main-head-light-green1 {
+	font-weight: bold; 
+	background: linear-gradient(#ffffff, #f3f9e9); 
+	border-top:none; 
+	padding: 30px 20px !important;  
+	text-align: center;
+	font-weight: lighter;
+}
+
+.table-main-head-light-green2 {
+	font-weight: bold; 
+	background: linear-gradient(#ffffff, #e1ffe9); 
+	border-top:none; 
+	padding: 30px 20px !important;  
+	text-align: center;
+	font-weight: lighter;
+}
+
+.table-main-head-controll {
+	font-weight: bold; 
+	background: linear-gradient(#ffffff, #e0e8f9); 
+	border-top:none; 
+	padding: 30px 20px !important;  
+	text-align: center;
+	font-weight: lighter;
+}
+
+.table-tr-bg-green1 {
+	background-color: #fafdf5fa;
+}
+
+.table-tr-bg-green2 {
+	background-color: #ebfff0fa;
+}
+
+.table-tr-bg-controll {
+	background-color: #edf2fbeb;
+}
+
+.font-16 {
+	font-size: 16px;
+}
+
+.color-green {
+	color: green;
+}
+
+.color-blue {
+	color: blue;
+}
+
+.color-yellow {
+	color: #ea7136;
+}
+
+.statistics-panel-blue {
+	border: 1px solid #e5e6e7; 
+	box-shadow: 1px 1px 1px 0px #007bff;
+}
+
+.statistics-panel-green {
+	border: 1px solid #e5e6e7; 
+	box-shadow: 1px 1px 1px 0px #6eab0c;
+}
+
+.statistics-panel-yellow {
+	border: 1px solid #e5e6e7; 
+	box-shadow: 1px 1px 1px 0px #f8ac59;
+}
+
+.statistics-panel-red {
+	border: 1px solid #e5e6e7; 
+	box-shadow: 1px 1px 1px 0px #dc3545;
+}
+
+.panel-info > .panel-heading {
+    background: -webkit-linear-gradient(269deg, #49cbf3 0%, rgb(255 255 255) 100%);
+    border: none;
+    color: #186c8a;
+    text-transform: uppercase;
+}
+
+.panel-info {
+    border-color: #bae9f9;
+}
+
+.product-price-input {
+	width: 100px !important;
+}
+
+.price-green {
+	color: green; 
+	font-size: 14px;
+}
+
+.price-yellow {
+	color: #ea7136; 
+	font-size: 14px;
+}
+
+.table-bordered-light {
+	border: 1px solid #dddddd; 
+	border-radius: 8px; 
+}
+
+.body-print {
+	background-color: white;
+
+}
+
+.body-print  .ibox {
+	box-shadow:none;
+	
+}
+
+.modal-open .select2-container {
+  z-index: 9999;
+}
+
+.status-table:hover {
+    background: #786b59; /* Цвет фона под ссылкой */ 
+    border: 1px solid #786b59;
+  }
+
+  /* Tooltip container */
+  .tooltip-status {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+
+  .progress-order {
+    height: 8px;
+    border-radius: 0px; 
+    width: 30px; 
+    margin: 0px;
+  }
+
+  .progress-order-max {
+    width: 10vw;
+    margin: 0px; 
+    height: 11px; 
+    border-radius: 0px;
+  }
+
+  .progress-bar-color {
+      height: 8px !important;
+      border-radius: 0px; 
+  }
+
+  /* Tooltip text */
+  .tooltip-status .tooltiptext-status {
+    visibility: hidden;
+    width: 150px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 12px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip-status:hover .tooltiptext-status {
+    visibility: visible;
+  }

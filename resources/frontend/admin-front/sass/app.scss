@@ -1,0 +1,58 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.9.2
+ *
+*/
+
+// Google Fonts
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en");
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~datatables.net-bs/css/dataTables.bootstrap.min";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+//@import "~summernote/dist/summernote.css";
+// Variables, Mixins
+@import "base/variables";
+@import "base/mixins";
+// INSPINIA Theme Elements
+@import "base/typography";
+@import "base/glyphicons";
+@import "base/navigation";
+@import "base/navigation";
+@import "base/top_navigation";
+@import "base/buttons";
+@import "base/badges_labels";
+@import "base/elements";
+@import "base/sidebar";
+@import "base/base";
+@import "base/pages.scss";
+@import "base/chat";
+@import "base/metismenu";
+@import "base/spinners";
+//
+@import "./components/other";
+@import "./components/toast";
+@import "./components/breadcrumbs";
+@import "./components/navigate.scss";
+@import "./components/cabinet.scss";
+@import "./components/auth/auth-exit.scss";
+//
+@import"./components/auth/auth-forms.scss";
+// Landing page
+@import "base/landing";
+@import "base/rtl";
+@import "base/media";
+@import "~select2";
+@media print {
+    nav.navbar-static-side {
+        display: none;
+    }
+    body {
+        overflow: visible !important;
+    }
+    #page-wrapper {
+        margin: 0;
+    }
+}

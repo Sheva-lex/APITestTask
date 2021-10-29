@@ -1,0 +1,237 @@
+.breadcrumbs_wrapper {
+    position: relative;
+}
+
+.breadcrumbs {
+    $bd: &;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    &__item {
+        align-items: center;
+        display: flex;
+        margin: 0 10px 7px 0;
+        min-height: 46px;
+        position: relative;
+        margin-left: 25px;
+        transition: filter .9s;
+        filter: drop-shadow(4px 3px 3px transparent);
+        &:hover {
+            cursor: pointer;
+            .breadcrumbs-item-icon {
+                min-width: 100%;
+            }
+        }
+        &--default {
+            background: $saved;
+            .arrow {
+                border-color: transparent transparent transparent $saved;
+            }
+            .breadcrumbs-item-icon {
+                background: $darkedSaved;
+                &::before {
+                    border-color: transparent $darkedSaved transparent transparent;
+                }
+                &::after {
+                    border-color: transparent transparent $darkedSaved transparent;
+                }
+                &__img {
+                    background-image: url('/img/img-admin/gear.svg');
+                }
+                &__arrow {
+                    border-color: transparent transparent transparent $darkedSaved;
+                }
+            }
+        }
+        &--saved {
+            background: $saved;
+            .arrow {
+                border-color: transparent transparent transparent $saved;
+            }
+            .breadcrumbs-item-icon {
+                background: $darkedSaved;
+                &::before {
+                    border-color: transparent $darkedSaved transparent transparent;
+                }
+                &::after {
+                    border-color: transparent transparent $darkedSaved transparent;
+                }
+                &__img {
+                    background-image: url('/img/img-admin/icons/saved.svg');
+                }
+                &__arrow {
+                    border-color: transparent transparent transparent $darkedSaved;
+                }
+            }
+        }
+        &--submitted {
+            background: $submitted;
+            .arrow {
+                border-color: transparent transparent transparent $submitted;
+            }
+            .breadcrumbs-item-icon {
+                background: $darkedSubmitted;
+                &::before {
+                    border-color: transparent $darkedSubmitted transparent transparent;
+                }
+                &::after {
+                    border-color: transparent transparent $darkedSubmitted transparent;
+                }
+                &__img {
+                    background-image: url('/img/img-admin/icons/submitted.svg');
+                }
+                &__arrow {
+                    border-color: transparent transparent transparent $darkedSubmitted;
+                }
+            }
+        }
+        &--approved {
+            background: $approved;
+            .arrow {
+                border-color: transparent transparent transparent $approved;
+            }
+            .breadcrumbs-item-icon {
+                background: $darkedApproved;
+                &::before {
+                    border-color: transparent $darkedApproved transparent transparent;
+                }
+                &::after {
+                    border-color: transparent transparent $darkedApproved transparent;
+                }
+                &__img {
+                    background-image: url('/img/img-admin/icons/approved.svg');
+                }
+                &__arrow {
+                    border-color: transparent transparent transparent $darkedApproved;
+
+                }
+            }
+        }
+        &--disaproved {
+            background: $disaproved;
+            .arrow {
+                border-color: transparent transparent transparent $disaproved;
+            }
+            .breadcrumbs-item-icon {
+                background: $darkedDisaproved;
+                &::before {
+                    border-color: transparent $darkedDisaproved transparent transparent;
+                }
+                &::after {
+                    border-color: transparent transparent $darkedDisaproved transparent;
+                }
+                &__img {
+                    background-image: url('/img/img-admin/icons/disaproved.svg');
+                }
+                &__arrow {
+                    border-color: transparent transparent transparent $darkedDisaproved;
+                }
+            }
+        }
+
+        .arrow {
+            border-style: solid;
+            border-width: 23px 0 23px 20px;
+            content: "";
+            display: block;
+            height: 0;
+            position: absolute;
+            right: -20px;
+            top: 0;
+            width: 0;
+        }
+        &.active {
+            .breadcrumbs-item-icon {
+                min-width: 100%;
+            }
+        }
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.breadcrumbs-item-icon {
+    display: block;
+    margin: 0 15px 0 0;
+    position: absolute;
+    min-width: 40px;
+    transition: min-width 1s;
+    z-index: 1;
+    height: 100%;
+    &__arrow {
+        border-style: solid;
+        border-width: 23px 0 23px 20px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        right: -20px;
+        top: 0;
+        width: 0;
+    }
+    &__img {
+        width: 16px;
+        height: 100%;
+        margin-left: 15px;
+        transform: rotate(0deg);
+        transition: transform .5s;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        display: flex;
+    }
+    &:before {
+        border-style: solid;
+        border-width: 0 20px 23px 0;
+        content: "";
+        display: block;
+        height: 0;
+        left: -20px;
+        position: absolute;
+        top: 0;
+        width: 0;
+    }
+    &:after {
+        border-style: solid;
+        border-width: 0 0 23px 20px;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 0;
+        left: -20px;
+        position: absolute;
+        width: 0;
+    }
+}
+
+.breadcrumbs-name {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: #fff;
+    outline: 0;
+    padding: 0 15px 0 75px;
+    position: relative;
+    text-decoration: none;
+    z-index: 2;
+    &__title {
+        font-size: 14px;
+        line-height: 150%;
+    }
+    &__subtitle {
+        font-size: 12px;
+        line-height: 100%;
+    }
+}
