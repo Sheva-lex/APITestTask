@@ -27,9 +27,9 @@
 composer install
 php artisan key:generate
 php artisan storage:link
-Run php artisan migrate --seed
-Run npm install
-Run npm run dev
+php artisan migrate --seed
+npm install
+npm run dev
 ```
 
 - That's it: launch the main URL
