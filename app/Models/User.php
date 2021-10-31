@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,19 +58,5 @@ class User extends Authenticatable
     public function getIsUserAttribute()
     {
         return $this->role === 'user';
-    }
-
-    public function scopeSearch($query, $val)
-    {
-        return $query
-            ->where('name', 'like', '%'.$val.'%')
-            ->orWhere('surname', 'like', '%'.$val.'%')
-            ->orWhere('patronymic', 'like', '%'.$val.'%');
-    }
-
-    public function scopeSearchByRole($query, $val = null)
-    {
-        return $query
-            ->where('role', 'like', '%'.$val.'%');
     }
 }

@@ -1,6 +1,8 @@
 {
+    "/js/app.js": "/js/app.js",
     "/js/js-admin/app.js": "/js/js-admin/app.js",
     "/css/css-admin/app.css": "/css/css-admin/app.css",
+    "/css/app.css": "/css/app.css",
     "/js/js-admin/app.min.js": "/js/js-admin/app.min.js",
     "/css/css-admin/app.min.css": "/css/css-admin/app.min.css",
     "/img/img-admin/auth-bg.jpeg": "/img/img-admin/auth-bg.jpeg",

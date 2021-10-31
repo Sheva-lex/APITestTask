@@ -9,15 +9,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -36,8 +33,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-
-                        <a class="nav-link" href="{{ route('home') }}">{{ __('Головна') }}</a>
+                        <a class="nav-link" href="{{ route('main') }}">{{ __('Головна') }}</a>
                     </li>
                 </ul>
 
@@ -59,7 +55,8 @@
                     @else
                         <li class="nav-item">
 
-                            <a class="nav-link" href="{{ route('redirect') }}">{{ __( Auth::user()->isAdmin ? 'Адмінка' : 'Кабінет') }}</a>
+                            <a class="nav-link"
+                               href="{{ route('redirect') }}">{{ __( Auth::user()->isAdmin ? 'Адмінка' : 'Кабінет') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -89,5 +86,8 @@
         @yield('content')
     </main>
 </div>
+
+<!-- Scripts -->
+<script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>

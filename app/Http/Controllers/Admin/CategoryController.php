@@ -10,7 +10,7 @@ use App\Services\UploadImageService;
 class CategoryController extends Controller
 {
 
-    public function index(): mixed
+    public function index()
     {
         $categories = Category::get();
         return view('admin.categories.index', compact('categories'));
@@ -32,7 +32,8 @@ class CategoryController extends Controller
             $validated['image'] = $path;
         }
         Category::create($validated);
-        return redirect()->route('admin.categories.index')->with('success', "Категорію \"{$request->name}\" успішно створено");
+        return redirect()->route('admin.categories.index')
+            ->with('success', "Категорію \"{$request->name}\" успішно створено");
     }
 
 
@@ -57,7 +58,8 @@ class CategoryController extends Controller
             $validated['image'] = $path;
         }
         $category->update($validated);
-        return redirect()->route('admin.categories.index')->with('success', "Категорію \"{$category->name}\" успішно оновлено");
+        return redirect()->route('admin.categories.index')
+            ->with('success', "Категорію \"{$category->name}\" успішно оновлено");
     }
 
 

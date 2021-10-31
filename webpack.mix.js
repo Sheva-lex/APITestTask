@@ -11,9 +11,9 @@ let  mix = require('laravel-mix');
  |
  */
 
-// mix.js('resources/js/app.js', 'public/js')
-//     .sass('resources/sass/app.scss', 'public/css')
-//     .sourceMaps();
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css').vue()
+    .sourceMaps();
 
 mix.js('resources/frontend/admin-front/js/app.js', 'public/js/js-admin').minify('public/js/js-admin/app.js')
     .sass('resources/frontend/admin-front/sass/app.scss', 'public/css/css-admin').minify('public/css/css-admin/app.css')

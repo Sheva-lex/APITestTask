@@ -20,10 +20,4 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'category_id', 'id')->latest();
     }
-
-    public function scopeSearch($query, $val)
-    {
-        return $query
-            ->where('name', '%' . $val . '%');
-    }
 }

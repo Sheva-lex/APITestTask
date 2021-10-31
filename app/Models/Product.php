@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,21 +27,8 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function scopeSearch($query, $val)
+    public function scopeFilter(Builder $builder, QueryFilter $filter)
     {
-        return $query
-            ->where('name', '%' . $val . '%');
+        return $filter->apply($builder);
     }
-
-    public function scopeSearchByCategory($query, $val)
-    {
-        if ($val == '') {
-            return $query
-                ->where('category_id', 'like', '%' . $val . '%')
-                ->orWhere('category_id', null);
-        }
-        return $query
-            ->where('category_id', 'like', '%' . $val . '%');
-    }
-
 }
