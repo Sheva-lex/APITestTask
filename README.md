@@ -11,7 +11,7 @@
     - _Laravel Vue Pagination component for Laravel paginators that works with Bootstrap_
     - _Vue Router component_
 - __Project pages__
-    - _home page(all products with pagination and filtering by category)_
+    - _home page(all products with pagination and filtering by category, price, date, perPage)_
     - _show product page_
 - __Admin panel__
     - _Basic CRUD operation with categories and products_

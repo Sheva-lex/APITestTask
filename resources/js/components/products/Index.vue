@@ -9,7 +9,28 @@
                         {{ category.name }}
                     </option>
                 </select>
-<!--                <input class="form-control mb-4 mr-4" type="text" v-model="params.searchField" placeholder="Пошук">-->
+                <div class="form-group mb-4">
+                    <select class="form-control mr-4" v-model="params.sortField">
+                        <option value="created_at">За датою</option>
+                        <option value="price">За ціною</option>
+                    </select>
+                    <select class="form-control mr-4" v-model="params.sortDirection">
+                        <option value="asc">Вверх</option>
+                        <option value="desc">Вниз</option>
+                    </select>
+                </div>
+                <input id="search" class="form-control mb-4 mr-4" type="text" v-model="search" placeholder="Пошук">
+                <div class="form-group mb-4 mr-4">
+                    <label for="perPage" class="mr-1">Показати: </label>
+                    <select id="perPage" name="perPage" class="form-control" v-model="params.perPage">
+                        <option :value="5">5</option>
+                        <option :value="10">10</option>
+                        <option :value="15">15</option>
+                        <option :value="20">20</option>
+                    </select>
+                </div>
+
+
             </div>
         </div>
         <div>
@@ -63,11 +84,11 @@ export default {
             errored: false,
             params: {
                 categoryId: '',
-                // searchField: '',
-                // perPage: 5,
-                // sortField: 'created_at',
-                // sortDirection: 'desc',
+                perPage: 5,
+                sortField: 'created_at',
+                sortDirection: 'desc',
             },
+            search: ''
         }
     },
     mounted() {
@@ -80,6 +101,11 @@ export default {
                 this.loadProducts();
             },
             deep: true
+        },
+        search(val, old) {
+            if (val.length >= 2 || old.length >= 2) {
+                this.loadProducts();
+            }
         }
     },
     methods: {
@@ -97,6 +123,7 @@ export default {
             axios.get('/api/v1/products', {
                 params: {
                     page,
+                    search: this.search.length >= 2 ? this.search : '',
                     ...this.params
                 }
             })

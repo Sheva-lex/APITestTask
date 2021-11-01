@@ -14,13 +14,19 @@ class ProductController extends Controller
 {
     public function index(ProductFilter $filter): AnonymousResourceCollection
     {
-        return ProductResource::collection(Product::filter($filter)->paginate(5));
+        $perPage = $filter->request->input('perPage') ?: 5;
+        $sortField = $filter->request->input('sortField') ?: 'created_at';
+        $sortDirection = $filter->request->input('sortDirection') ?: 'desc';
+        return ProductResource::collection(
+            Product::filter($filter)
+                ->orderBy($sortField, $sortDirection)
+                ->paginate($perPage)
+        );
     }
 
     public function store(ProductRequest $request): object
     {
-        $product = Product::create($request->validated());
-        return $product;
+        return Product::create($request->validated());
     }
 
     public function show(Product $product): object

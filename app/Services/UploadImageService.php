@@ -25,7 +25,6 @@ class UploadImageService
             $image = '/public' . substr($image, strlen('/storage'));
             Storage::delete($image);
         }
-
         return '/storage/' . $file->store("/$folder", 'public');
     }
 

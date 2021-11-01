@@ -9,13 +9,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
         'name',
         'patronymic',
@@ -26,37 +23,27 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    public function getIsAdminAttribute()
+    public function getIsAdminAttribute(): bool
     {
-        return $this->role === 'admin';
+        return $this->getAttribute('role') === 'admin';
     }
 
-    public function getIsManagerAttribute()
+    public function getIsManagerAttribute(): bool
     {
-        return $this->role === 'manager';
+        return $this->getAttribute('role') === 'manager';
     }
 
-    public function getIsUserAttribute()
+    public function getIsUserAttribute(): bool
     {
-        return $this->role === 'user';
+        return $this->getAttribute('role') === 'user';
     }
 }
