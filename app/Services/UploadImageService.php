@@ -5,7 +5,6 @@ namespace App\Services;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
-
 class UploadImageService
 {
     public function uploadImage(object $file, string $folder, string $image = null): ?string
@@ -19,7 +18,6 @@ class UploadImageService
         }
         return $name;
     }
-
 
     public function updateImage(object $file, string $folder, string $image = null): string
     {
