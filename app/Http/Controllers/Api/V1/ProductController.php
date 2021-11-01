@@ -7,63 +7,34 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(ProductFilter $filter)
+    public function index(ProductFilter $filter): AnonymousResourceCollection
     {
         return ProductResource::collection(Product::filter($filter)->paginate(5));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request): object
     {
         $product = Product::create($request->validated());
         return $product;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
+    public function show(Product $product): object
     {
         return new ProductResource($product);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product): object
     {
         $product->update($request->validated());
         return new ProductResource($product);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
+    public function destroy(Product $product): Response
     {
         $product->delete();
         return response(null, Response::HTTP_NO_CONTENT);

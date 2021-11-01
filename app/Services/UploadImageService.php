@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UploadImageService
 {
-    public function uploadImage($file, $folder, $image = null)
+    public function uploadImage(object $file, string $folder, string $image = null): ?string
     {
         $name = null;
         if ($file) {
@@ -21,7 +21,7 @@ class UploadImageService
     }
 
 
-    public function updateImage($file, $folder, $image = null)
+    public function updateImage(object $file, string $folder, string $image = null): string
     {
         if ($image) {
             $image = '/public' . substr($image, strlen('/storage'));
@@ -31,7 +31,7 @@ class UploadImageService
         return '/storage/' . $file->store("/$folder", 'public');
     }
 
-    public function deleteImage($image)
+    public function deleteImage(string $image): void
     {
         if (is_array($image) or $image instanceof Collection) {
             foreach ($image as $media) {

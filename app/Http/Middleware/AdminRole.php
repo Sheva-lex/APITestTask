@@ -8,19 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminRole
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         if (Auth::check() && Auth::user()->isAdmin) {
             return $next($request);
         }
-
         return redirect()->route('redirect');
     }
 }

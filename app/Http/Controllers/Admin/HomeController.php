@@ -6,32 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function index(): Application|Factory|View
     {
-        $categories =
         $categoryCount = Category::count();
         $productCount = Product::count();
         $userCount = User::count();
-
-
         return view('admin.home', compact('productCount', 'userCount', 'categoryCount'));
     }
 }

@@ -13,23 +13,6 @@
             </div>
         </div>
         <div class="ibox-content">
-
-            {{--            <div class="row mb-4 mt-4 pb-4">--}}
-            {{--                <div class="col form-inline">--}}
-            {{--                    Per Page: &nbsp;--}}
-            {{--                    <select wire:model="perPage" class="form-control">--}}
-            {{--                        <option>5</option>--}}
-            {{--                        <option>10</option>--}}
-            {{--                        <option>15</option>--}}
-            {{--                        <option>20</option>--}}
-            {{--                    </select>--}}
-            {{--                </div>--}}
-
-            {{--                <div class="col">--}}
-            {{--                    <input type="search" class="form-control" type="text"--}}
-            {{--                           placeholder="Поиск ...">--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
             @if ($categories->count())
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -88,13 +71,6 @@
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot class="text-right">
-                        <tr>
-                            <td colspan="6">
-{{--                                {{ $categories->links() }}--}}
-                            </td>
-                        </tr>
-                        </tfoot>
                     </table>
                 </div>
             @else

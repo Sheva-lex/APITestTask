@@ -9,19 +9,18 @@ class QueryFilter
 {
     public $request;
     protected $builder;
-    protected $delimiter = ',';
 
     public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
-    public function filters()
+    public function filters(): array
     {
         return $this->request->query();
     }
 
-    public function apply(Builder $builder)
+    public function apply(Builder $builder): Builder
     {
         $this->builder = $builder;
         foreach ($this->filters() as $name => $value) {
@@ -29,12 +28,6 @@ class QueryFilter
                 call_user_func_array([$this, $name], array_filter([$value]));
             }
         }
-
         return $this->builder;
-    }
-
-    protected function paramToArray($param)
-    {
-        return explode($this->delimiter, $param);
     }
 }

@@ -1,13 +1,16 @@
 <template>
     <div class="container">
-        <div class="mb-2">
-            <select v-model="params.categoryId">
-                <option value="">Виберіть категорію</option>
-                <option v-for="category in categories"
-                        :value="category.id">
-                    {{ category.name }}
-                </option>
-            </select>
+        <div class="row">
+            <div class="col form-inline">
+                <select class="form-control mb-4 mr-4" v-model="params.categoryId">
+                    <option value="">Виберіть категорію</option>
+                    <option v-for="category in categories"
+                            :value="category.id">
+                        {{ category.name }}
+                    </option>
+                </select>
+<!--                <input class="form-control mb-4 mr-4" type="text" v-model="params.searchField" placeholder="Пошук">-->
+            </div>
         </div>
         <div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -59,8 +62,8 @@ export default {
             loading: true,
             errored: false,
             params: {
-                id: '',
                 categoryId: '',
+                // searchField: '',
                 // perPage: 5,
                 // sortField: 'created_at',
                 // sortDirection: 'desc',

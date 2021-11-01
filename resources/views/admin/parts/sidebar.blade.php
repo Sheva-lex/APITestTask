@@ -35,8 +35,8 @@
                     WHO
                 </div>
             </li>
-            <li @if(request()->routeIs('admin.home')) class="mm-active" @endif>
-                <a href="{{ route('admin.home') }}">
+            <li @if(request()->routeIs('admin.dashboard')) class="mm-active" @endif>
+                <a href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-home"></i>
                     <span class="nav-label">Головна</span>
                 </a>

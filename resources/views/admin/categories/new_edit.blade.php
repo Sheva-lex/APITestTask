@@ -109,9 +109,9 @@
                                             class="far fa-times-circle"></i> Отменить</a>
                                 </div>
                             </div>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
 @endsection

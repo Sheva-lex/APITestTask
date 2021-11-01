@@ -2,11 +2,15 @@
 
 namespace App\Filters;
 
+use Illuminate\Database\Eloquent\Builder;
+
 class ProductFilter extends QueryFilter
 {
-    public function categoryId($id = null)
+    public function categoryId(?int $id = null): Builder
     {
-        return $this->builder->when($id, function ($query) use ($id) {
+        return $this->builder->when(
+            $id,
+            function ($query) use ($id) {
                 $query->where('category_id', $id);
             }
         );

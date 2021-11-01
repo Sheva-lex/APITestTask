@@ -30,7 +30,7 @@
                     @endif
 
 
-                        <!-- nonetranslateble -->
+                    <!-- nonetranslateble -->
 
                         <div class="form-group col-12">
                             <div class="form-group">
@@ -39,9 +39,9 @@
                                     <select type="number" class="form-control" name="category_id">
                                         @if(isset($categories))
 
-                                                <option value="">
-                                                    Не задана
-                                                </option>
+                                            <option value="">
+                                                Не задана
+                                            </option>
                                             @foreach($categories as $category)
                                                 @if (isset($product->category_id))
                                                     <option
@@ -116,7 +116,7 @@
                                        class="form-control @error('is_active') is-invalid @enderror"
                                        id="is_active"
                                        value="1"
-                                        {{ isset($product->is_active) && $product->is_active == true ? 'checked' : '' }}>
+                                    {{ isset($product->is_active) && $product->is_active == true ? 'checked' : '' }}>
                                 @error('is_active')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -141,8 +141,9 @@
                                 <input type="file" name="image"
                                        class="form-control @error('image') is-invalid @enderror"
                                        id="image"
-                                       >
-                                <img src="{{ isset($product->image) ? asset($product->image) : '' }}" id="image-tag" width="200px" />
+                                >
+                                <img src="{{ isset($product->image) ? asset($product->image) : '' }}" id="image-tag"
+                                     width="200px"/>
 
                                 <script type="text/javascript">
                                     function readURL(input) {
@@ -155,7 +156,8 @@
                                             reader.readAsDataURL(input.files[0]);
                                         }
                                     }
-                                    $("#image").change(function(){
+
+                                    $("#image").change(function () {
                                         readURL(this);
                                     });
                                 </script>
@@ -176,7 +178,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
 @endsection
