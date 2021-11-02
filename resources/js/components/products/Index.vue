@@ -78,7 +78,7 @@
 
 <script>
 export default {
-    data: function () {
+    data: function() {
         return {
             categories: {},
             products: {},
@@ -90,56 +90,54 @@ export default {
                 sortField: 'created_at',
                 sortDirection: 'desc',
             },
-            search: ''
-        }
+            search: '',
+        };
     },
-    mounted() {
-        this.loadCategories();
-        this.loadProducts();
+    async mounted() {
+        await this.loadCategories();
+        await this.loadProducts();
     },
     watch: {
         params: {
-            handler() {
-                this.loadProducts();
+            async handler() {
+                await this.loadProducts();
             },
-            deep: true
+            deep: true,
         },
-        search(val, old) {
+        async search(val, old) {
             if (val.length >= 2 || old.length >= 2) {
-                this.loadProducts();
+                await this.loadProducts();
             }
-        }
+        },
     },
     methods: {
-        loadCategories: function () {
-            axios.get('/api/v1/categories')
-                .then((response) => {
-                    this.categories = response.data.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    this.errored = true;
-                });
+        loadCategories: async function() {
+            try {
+                let response = await axios.get('/api/v1/categories');
+                this.categories = response.data.data;
+            } catch (error) {
+                console.log(error);
+                this.errored = true;
+            }
         },
-        loadProducts: function (page = 1) {
-            axios.get('/api/v1/products', {
-                params: {
-                    page,
-                    search: this.search.length >= 2 ? this.search : '',
-                    ...this.params
-                }
-            })
-                .then((response) => {
-                    this.products = response.data;
-                    this.loading = false;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    this.errored = true;
+        loadProducts: async function(page = 1) {
+            try {
+                let response = await axios.get('/api/v1/products', {
+                    params: {
+                        page,
+                        search: this.search.length >= 2 ? this.search : '',
+                        ...this.params,
+                    },
                 });
+                this.products = response.data;
+                this.loading = false;
+            } catch (error) {
+                console.log(error);
+                this.errored = true;
+            }
         },
-    }
-}
+    },
+};
 </script>
 
 <style scoped>

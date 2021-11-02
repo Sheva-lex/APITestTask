@@ -21,8 +21,10 @@ class ProductFilter extends QueryFilter
         return $this->builder->when(
             $searchString,
             function ($query) use ($searchString) {
-                $query->where('name', 'LIKE', '%' . $searchString . '%')
-                    ->orWhere('description', 'LIKE', '%' . $searchString . '%');
+                $query->where(function ($query) use ($searchString) {
+                    $query->where('name', 'LIKE', '%' . $searchString . '%')
+                        ->orWhere('description', 'LIKE', '%' . $searchString . '%');
+                });
             }
         );
     }

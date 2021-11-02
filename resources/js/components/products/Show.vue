@@ -35,29 +35,31 @@ export default {
     props: {
         id: {
             required: true,
-            type: String
-        }
+            type: String,
+        },
     },
     data() {
         return {
             product: null,
             errored: false,
-            loading: true
-        }
+            loading: true,
+        };
     },
-    mounted() {
-        axios.get('/api/v1/products/' + this.id)
-            .then(response => {
-                this.product = response.data.data
-            })
-            .catch(error => {
-                console.log(error)
-                this.errored = true
-            })
-            .finally(() => {
-                this.loading = false
-            })
-    }
-}
+    async mounted() {
+        await this.loadProduct();
+    },
+    methods: {
+        loadProduct: async function(page = 1) {
+            try {
+                let response = await axios.get('/api/v1/products/' + this.id);
+                this.product = response.data.data;
+                this.loading = false;
+            } catch (error) {
+                console.log(error);
+                this.errored = true;
+            }
+        },
+    },
+};
 </script>
 
