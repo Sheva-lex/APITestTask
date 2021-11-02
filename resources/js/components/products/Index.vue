@@ -9,15 +9,17 @@
                         {{ category.name }}
                     </option>
                 </select>
-                <div class="form-group mb-4">
-                    <select class="form-control mr-4" v-model="params.sortField">
+                <div class="form-group mb-4 mr-4">
+                    <select class="form-control mr-1" v-model="params.sortField">
                         <option value="created_at">За датою</option>
                         <option value="price">За ціною</option>
                     </select>
-                    <select class="form-control mr-4" v-model="params.sortDirection">
-                        <option value="asc">Вверх</option>
-                        <option value="desc">Вниз</option>
-                    </select>
+                    <div v-if="params.sortDirection === 'asc'" class="form-control cursor-pointer">
+                        <i class="fas fa-arrow-up" @click="params.sortDirection = 'desc'"></i>
+                    </div>
+                    <div v-if="params.sortDirection === 'desc'" class="form-control cursor-pointer">
+                        <i class="fas fa-arrow-down" @click="params.sortDirection = 'asc'"></i>
+                    </div>
                 </div>
                 <input id="search" class="form-control mb-4 mr-4" type="text" v-model="search" placeholder="Пошук">
                 <div class="form-group mb-4 mr-4">
@@ -139,4 +141,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.cursor-pointer {
+    cursor: pointer;
+}
+</style>
 
