@@ -38,11 +38,6 @@ class CategoryController extends Controller
             ->with('success', "Категорію \"{$request->name}\" успішно створено");
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit(Category $category): Application|Factory|View
     {
         return view('admin.categories.new_edit', compact('category'));

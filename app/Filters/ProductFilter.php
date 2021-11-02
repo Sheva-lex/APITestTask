@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ProductFilter extends QueryFilter
 {
-    public function categoryId(?int $id = null): ?Builder
+    public function categoryId(?string $ids = null): ?Builder
     {
         return $this->builder->when(
-            $id,
-            function ($query) use ($id) {
-                $query->where('category_id', $id);
+            $ids,
+            function ($query) use ($ids) {
+                $query->whereIn('category_id', $this->paramToArray($ids));
             }
         );
     }

@@ -17,6 +17,11 @@ class Category extends Model
         'priority',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:d.m.Y h:i:s',
+        'updated_at' => 'datetime:d.m.Y h:i:s',
+    ];
+
     public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'category_id', 'id')->latest();

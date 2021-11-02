@@ -40,11 +40,6 @@ class ProductController extends Controller
             ->with('success', "Продукт \"{$request->name}\" успішно створено");
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit(Product $product): Application|Factory|View
     {
         $categories = Category::get();

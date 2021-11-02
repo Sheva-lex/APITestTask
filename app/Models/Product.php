@@ -6,7 +6,6 @@ use App\Filters\QueryFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
@@ -23,12 +22,17 @@ class Product extends Model
         'priority',
     ];
 
-    public function category(): BelongsTo
+    protected $casts = [
+        'created_at' => 'datetime:d.m.Y h:i:s',
+        'updated_at' => 'datetime:d.m.Y h:i:s',
+    ];
+
+    public function category(): object
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function scopeFilter(Builder $builder, QueryFilter $filter): Builder
+    public function scopeFilter(Builder $builder, QueryFilter $filter): object
     {
         return $filter->apply($builder);
     }

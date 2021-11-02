@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class QueryFilter
 {
-    public $request;
-    protected $builder;
+    public object $request;
+    protected object $builder;
+    protected string $delimiter = ',';
 
     public function __construct(Request $request)
     {
@@ -29,5 +30,10 @@ class QueryFilter
             }
         }
         return $this->builder;
+    }
+
+    protected function paramToArray(?string $param): array
+    {
+        return explode($this->delimiter, $param);
     }
 }
