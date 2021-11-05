@@ -90,10 +90,12 @@ export default {
                 sortField: 'created_at',
                 sortDirection: 'desc',
             },
+            page: 1,
             search: '',
         };
     },
     async mounted() {
+        await this.loadParams();
         await this.loadCategories();
         await this.loadProducts();
     },
@@ -120,17 +122,37 @@ export default {
                 this.errored = true;
             }
         },
-        loadProducts: async function(page = 1) {
+        loadParams: async function() {
+            try {
+                let parameters = await this.$route.query;
+                this.page = parameters.page ? parameters.page : 1;
+                this.search = parameters.search ? parameters.search : '';
+                this.params.categoryId = parameters.categoryId ? parameters.categoryId : '';
+                this.params.sortField = parameters.sortField ? parameters.sortField : 'created_at';
+                this.params.sortDirection = parameters.sortDirection ? parameters.sortDirection : 'desc';
+            } catch (error) {
+                console.log(error);
+                this.errored = true;
+            }
+        },
+        loadProducts: async function(page) {
             try {
                 let response = await axios.get('/api/v1/products', {
                     params: {
-                        page,
+                        page: page ? page : this.page,
                         search: this.search.length >= 2 ? this.search : '',
                         ...this.params,
                     },
                 });
                 this.products = response.data;
                 this.loading = false;
+                this.$router.push({
+                    path: '', query: {
+                        page: page ? page : this.page,
+                        search: this.search.length >= 2 ? this.search : '',
+                        ...this.params,
+                    },
+                });
             } catch (error) {
                 console.log(error);
                 this.errored = true;
