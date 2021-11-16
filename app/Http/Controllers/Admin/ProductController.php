@@ -17,9 +17,9 @@ class ProductController extends Controller
 
     public function index(): Application|Factory|View
     {
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->paginate(10);
         return view('admin.products.index', compact('products'));
-    }
+    }git
 
     public function create(): Application|Factory|View
     {

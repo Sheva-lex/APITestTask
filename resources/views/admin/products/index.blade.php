@@ -86,7 +86,7 @@
                         <tfoot class="text-right">
                         <tr>
                             <td colspan="6">
-                                {{--                                {{ $products->links() }}--}}
+                                {{ $products->links() }}
                             </td>
                         </tr>
                         </tfoot>
