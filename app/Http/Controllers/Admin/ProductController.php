@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $products = Product::with('category')->paginate(10);
         return view('admin.products.index', compact('products'));
-    }git
+    }
 
     public function create(): Application|Factory|View
     {
