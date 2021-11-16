@@ -12,7 +12,6 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'created_at' => $this->created_at->format('d.m.Y'),
-            'products' => ProductResource::collection($this->products),
         ];
     }
 }

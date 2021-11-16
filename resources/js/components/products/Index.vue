@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <pagination :data="products" @pagination-change-page="loadProducts"></pagination>
+            <pagination :data="products" :limit="3" @pagination-change-page="loadProducts"></pagination>
             <div class="alert alert-danger" role="alert" v-if="errored">
                 Помилка загрузки даних!
             </div>
